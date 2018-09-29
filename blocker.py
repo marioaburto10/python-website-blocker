@@ -3,8 +3,9 @@ import time
 from datetime import datetime as dt
 
 # paths to our hosts file and to the redirect url which happens to be our local host address
+hosts_temp = "hosts-backup"
 hosts_path = r"/etc/hosts"
-redirects = "127.0.0.1"
+redirect = "127.0.0.1"
 # a list of wesbites that we want to block to prevent us from being able to access
 websites_list = ["www.facebook.com", "facebook.com"]
 
@@ -12,7 +13,15 @@ websites_list = ["www.facebook.com", "facebook.com"]
 # work hours are being defined here from 8 AM to 4 PM
 while True:
 	if dt(dt.now().year, dt.now().month, dt.now().day, 8) < dt.now() < dt(dt.now().year, dt.now().month, dt.now().day, 16):
-		print("Time to work!")
+		print("Working Hours!")
+		# open and read the sample host file
+		with open(hosts_temp, "r+") as file:
+			content = file.read()
+			# iterate through website list and add it to the hosts file to be blocked if it is not already on there
+			for website in websites_list:
+				if website in content:
+					pass
+				else: file.write(redirect + " " + website + "\n")
 	else:
-		print("This is not during work hours")
+		print("Not work hours")
 	time.sleep(5)
