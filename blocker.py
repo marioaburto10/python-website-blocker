@@ -12,16 +12,31 @@ websites_list = ["www.facebook.com", "facebook.com"]
 # create a loop that will continuously run, it will check to see if the current time is considered work hours
 # work hours are being defined here from 8 AM to 4 PM
 while True:
-	if dt(dt.now().year, dt.now().month, dt.now().day, 8) < dt.now() < dt(dt.now().year, dt.now().month, dt.now().day, 16):
+	if dt(dt.now().year, dt.now().month, dt.now().day, 0) < dt.now() < dt(dt.now().year, dt.now().month, dt.now().day, 16):
 		print("Working Hours!")
 		# open and read the sample host file
-		with open(hosts_temp, "r+") as file:
+		with open(hosts_path, "r+") as file:
 			content = file.read()
-			# iterate through website list and add it to the hosts file to be blocked if it is not already on there
+			print(content)
+			# iterate through website list and add website to the hosts file to be blocked if it is not already on there
 			for website in websites_list:
 				if website in content:
 					pass
-				else: file.write(redirect + " " + website + "\n")
+				else: 
+					file.write(redirect + " " + website + "\n")
 	else:
+		# if the current time is not work hours, then read the hosts file and delete any trace of the blocked websites
+		with open(hosts_path, "r+") as file:
+			content = file.readlines()
+			# print(content)  
+			file.seek(0)
+			# we check to see if any websites exist in the hosts file
+			# if they do exist in the hosts file, rewrite every line that does not have a website (from website_list) name and delete any text that was there previously
+			# This updates the hosts file with text that does not include a website name, therefore no websites will be blocked
+			for line in content:
+				if not any(website in line for website in websites_list):
+					file.write(line)
+			file.truncate()
 		print("Not work hours")
+	# wait 5 seconds before checking to see it the current time is during work hours or not
 	time.sleep(5)
