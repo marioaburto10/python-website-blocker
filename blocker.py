@@ -12,7 +12,7 @@ websites_list = ["www.facebook.com", "facebook.com"]
 # create a loop that will continuously run, it will check to see if the current time is considered work hours
 # work hours are being defined here from 8 AM to 4 PM
 while True:
-	if dt(dt.now().year, dt.now().month, dt.now().day, 0) < dt.now() < dt(dt.now().year, dt.now().month, dt.now().day, 16):
+  if dt(dt.now().year, dt.now().month, dt.now().day, 0) < dt.now() < dt(dt.now().year, dt.now().month, dt.now().day, 16):
 		print("Working Hours!")
 		# open and read the sample host file
 		with open(hosts_temp, "r+") as file:
