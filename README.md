@@ -19,4 +19,4 @@ Since the facebook website is not running on our localhost, it will give us back
 
 If the current time is not during work hours, then it will open the hosts file and remove the website names so that they will not be blocked anymore using the `truncate()` method.
 
-**_This is perfect preventing your employees from visiting certain websites on work computers, restricting website access to kids, or to just simply help you avoid distractions!_**
+**_This is perfect for preventing employees from visiting certain websites on work computers, restricting website access to kids, or to just simply help you avoid distractions!_**
