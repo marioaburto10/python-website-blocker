@@ -3,7 +3,7 @@ import time
 from datetime import datetime as dt
 
 # paths to our hosts file and to the redirect url which happens to be our local host address
-hosts_temp = "hosts-backup"
+hosts_temp = "hosts-example"
 hosts_path = r"/etc/hosts"
 redirect = "127.0.0.1"
 # a list of wesbites that we want to block to prevent us from being able to access
@@ -15,7 +15,7 @@ while True:
 	if dt(dt.now().year, dt.now().month, dt.now().day, 0) < dt.now() < dt(dt.now().year, dt.now().month, dt.now().day, 16):
 		print("Working Hours!")
 		# open and read the sample host file
-		with open(hosts_path, "r+") as file:
+		with open(hosts_temp, "r+") as file:
 			content = file.read()
 			print(content)
 			# iterate through website list and add website to the hosts file to be blocked if it is not already on there
