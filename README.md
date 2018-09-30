@@ -18,3 +18,5 @@ This is what a sample hosts file may look like. Here we are linking the Facebook
 Since the facebook website is not running on our localhost, it will give us back an error page instead. This is the error page that the browser gives us when we try to access Facebook during work hours ![This is the error page that the browser gives us when we try to access Facebook during work hours](images/error.png) 
 
 If the current time is not during work hours, then it will open the hosts file and remove the website names so that they will not be blocked anymore using the `truncate()` method.
+
+**_This is perfect preventing your employees from visiting certain websites on work computers, restricting website access to kids, or to just simply help you avoid distractions!_**
