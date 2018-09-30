@@ -10,6 +10,7 @@ This is what a sample hosts file may look like. Here we are linking the Facebook
 127.0.0.1 localhost 
 255.255.255.255 broadcasthost 
 ::1 localhost 
+
 127.0.0.1 www.facebook.com 
 127.0.0.1 facebook.com 
 ``` 
